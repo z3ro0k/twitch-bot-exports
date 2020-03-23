@@ -48,11 +48,8 @@ class Bot extends client {
     }
   }
  // untested ban function	
-  ban(target, username, reason = '', channel) {
+  ban(target, username, reason = '') {
     try {
-      if (!channel) {
-        channel = this.channels[0]
-      }
       this.say(target, `/ban ${username} ${reason}`)
     } catch (e) {
       console.log(e)

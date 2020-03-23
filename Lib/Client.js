@@ -13,7 +13,6 @@ class Bot extends client {
             throw new Error('missing or invalid required arguments')
         }
         this.commands = new Map();
-        this.username = username
         this.client = this
         this.channels = channels.map(channel => this.formatCHANNEL(channel))
         this.opts = { identity, channels,connection } 
@@ -23,7 +22,6 @@ class Bot extends client {
     async Connect() {
         await this.loadCommands(path.join(__dirname, '../','commands'));;
         this.connect()
-        //console.log()
         this.on('connected', onConnectedHandler);  
     }
 
@@ -42,8 +40,6 @@ class Bot extends client {
 
 			if (i + 1 === commands.length) {
 				console.log('Loaded ' + commands.length + ' commands.');
-
-				//this.loadEvents(path.join(__dirname, 'Events'));
 			}
 		}
     }

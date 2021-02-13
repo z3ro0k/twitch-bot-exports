@@ -8,7 +8,7 @@ Twitch offers an Internet Relay Chat (IRC) interface for chat functionality. Cha
 
 We’ll build a simple chatbot that responds in chat when someone types `!dice`. (This is known as a chatbot command.) When triggered, it randomly generates a number between 1-6. We run the fully-functioning chatbot on this Glitch,  as well as show you how to run locally on our [Developer Docs](https://dev.twitch.tv/docs/irc/).
 
-![example-screenshot](https://i.atzu.xyz/atzu-cbbd.png)
+![example-screenshot](https://i.atzu.xyz/atzu-cadb.png)
 
 
 

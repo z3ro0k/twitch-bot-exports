@@ -29,7 +29,7 @@ To start, you’ll need three environment variables:
 
 2. Glitch automatically installs Node and Tmi.js for us.
 
-3. Add the three environmental vars in our [`.env`](https://glitch.com/edit/#!/ng-twitch-bot?path=.env:1:0) file.
+3. Add the three environmental vars in our [`.env`](.env.example) file.
 
 4. View the code in `bot.js`. 
 

@@ -24,7 +24,7 @@ class Bot extends client {
 
   async Connect() {
     await this.loadCommands(path.join(__dirname, '../', 'commands'));;
-    this.connect()
+    this.connect().catch(console.error);
     this.on('connected', onConnectedHandler);
   }
 

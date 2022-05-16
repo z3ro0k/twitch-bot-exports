@@ -47,4 +47,32 @@ To start, you’ll need three environment variables:
 Read [Chatbots & IRC documentation](https://dev.twitch.tv/docs/irc/guide/).
 * Reach out to the [Twitch chatbot forum](https://discuss.dev.twitch.tv/c/chat) for help!
 
+## How get the refresh token
 
+### Configure Environment Vars
+
+1. Navigate to [Spotify Dashboard](https://developer.spotify.com/dashboard/) and create a new app.
+   <img src="https://i.imgur.com/msl76HF.png" height="300">
+
+2. Click, edit settings and add "https://localhost:3000/callback" to the "Redirect URIs" section
+   <img src="https://i.imgur.com/wm4IoDH.png" height="400">
+
+3. Next, we need to do a [Authoration Code flow](https://developer.spotify.com/documentation/general/guides/authorization-guide/#authorization-code-flow) auth request to retrieve a Refresh Token.
+
+   - Replace "MY_CLIENT_ID" in the following url with your Client ID from your Spotify Dashboard and paste the url in your browser. Your client id and secret id can be found in your dashboard, pic below
+
+   https://accounts.spotify.com/es/authorize?client_id=MY_CLIENT_ID&response_type=code&redirect_uri=https:%2F%2Flocalhost:3000%2Fcallback&scope=user-read-playback-state&user-read-currently-playing&user-read-private&user-read-email&user-top-read&user-read-recently-played
+
+   <img src="https://i.imgur.com/VzY5Uxv.png" >
+
+   - Once done, you will get a blank page with a different url which is like "https://localhost:3000/callback?code=MY_CODE"
+
+   - Next, navigate to [Base64Encode](https://www.base64encode.org/) and insert your client id and secret id **separated with a colon**. For example, "CLIENT_ID:SECRET_ID"
+
+   - Then, insert your **base 64 encoded string** and **code** from the previous steps in the following command and press enter to run.
+
+   curl -H "Authorization: Basic MY_BASE_64_STRING" -d grant_type=authorization_code -d code=MY_SPOTIFY_CODE -d redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Fcallback https://accounts.spotify.com/api/token
+
+   <img src="https://i.imgur.com/tnaCoqj.png">
+
+   - Once done correctly, you will get JSON which contains your refresh token, shown in the blue box in the image above. Take out the refresh token, blocked out in green above, and save it somewhere

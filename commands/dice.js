@@ -1,6 +1,6 @@
 const Command = require('../Lib/Command');
 
-class Ping extends Command {
+class Dice extends Command {
 	constructor(parent, client) {
 		super({
 			command: 'dice',
@@ -22,4 +22,4 @@ class Ping extends Command {
     }
 }
 
-module.exports = Ping;
+module.exports = Dice;
